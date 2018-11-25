@@ -1,8 +1,8 @@
-version: '3'
+version: '3.1'
 
 services:
   postgres:
-    image: postgres
+    image: postgres:latest
     hostname: postgres
     environment:
       POSTGRES_USER: postgres
@@ -10,19 +10,23 @@ services:
       PGDATA: /data/postgres
     volumes:
        - /data/postgres:/data/postgres
+    restart: always
     ports:
-      - "5432:5432"
-    restart: unless-stopped
+       - "5432:5432"
+#    ports:
+#      - "5432:5432"
+#    restart: unless-stopped
   
-  pgadmin:
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: pgadmin@mail.com
-      PGADMIN_DEFAULT_PASSWORD: pgadmin
-    volumes:
-       - /data/pgadmin:/root/.pgadmin
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres
-    restart: unless-stopped
+#  pgadmin:
+#    image: dpage/pgadmin4:latest
+#    depends_on:
+#      - postgres
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: pgadmin@mail.com
+#      PGADMIN_DEFAULT_PASSWORD: pgadmin
+#    volumes:
+#      - /data/pgadmin:/root/.pgadmin
+#    ports:
+#      - "5050:80"
+#    restart: always
+ #   restart: unless-stopped

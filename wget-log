@@ -1,0 +1,3 @@
+--2018-11-16 12:52:42--  http://application/x-www-form-urlencoded--body-data%20appid=6WEFl6TkcxzX3dHUdLAW7dTrQ57
+Resolving application (application)... failed: Name or service not known.
+wget: unable to resolve host address ‘application’
